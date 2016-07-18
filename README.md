@@ -94,3 +94,47 @@ To configure your GitHub account to use your new (or existing) SSH key, you'll a
 8. Confirm the action by entering your GitHub password
 
 **.pub is short for "public". This is the version you are allowed to get out. The other `id_rsa` file is the private one and you shouldn't  copy and paste that anywhere!**
+
+## 3.0 Adding a new SSH key to your Heroku account
+
+Sign up for `Heroku` for free. `Heroku` has some great tools that make deploying from the command line effortless!
+
+1. Once you have your account you can log back in
+2. Go to your `Manage Account` option
+3. Scroll down and look for `SSH Keys`
+4. Copy and paste your `id_rsa.pub` key
+5. Click `Save`
+
+All right, now you have one key registered to `Heroku` but that means you can start running commands from the terminal!
+
+## 4.0 Installing Heroku Toolbelt
+
+The Heroku toolbelt will give us access to the Heroku Command Line. Click on the link below to install the Heroku Toolbelt.
+
+[Heroku Toolbelt](https://toolbelt.heroku.com/)
+
+Go ahead and run the instructions for this installer. It'll install a new tool on your computer that lets you create, update, and deploy our apps right from the command line.
+
+Go into your command line and type:
+
+```
+$ heroku
+```
+
+Now you can see all the commands available to us.
+
+### 4.1 Logging into Heroku
+
+After the installation the only thing you have to do is to login to `Heroku` just once by typing the following command in your terminal:
+
+```
+$ heroku login
+```
+
+You can confirm that your login went well by running a command like:
+
+```
+$ heroku apps
+```
+
+Which will return a list of all your apps. In your case you probably won't have anything under my apps but it should still return without an error message!
