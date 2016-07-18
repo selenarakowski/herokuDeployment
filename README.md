@@ -138,3 +138,111 @@ $ heroku apps
 ```
 
 Which will return a list of all your apps. In your case you probably won't have anything under my apps but it should still return without an error message!
+
+## 5.0 Deploying Your Node App
+
+The benefit of `Heroku` is that we can deploy from a git repository which makes our lives much easier. Just push and our changes are live!
+
+From within the folder of your git repo, we do the following steps:
+
+1. Create a remote repository (called heroku as opposed to our main origin remote repository) so our application knows where to push our deployable code
+2. Push the repository
+
+Let’s create the remote repository:
+
+```
+$ heroku create
+```
+
+That simple little command creates a brand new `Heroku` app! You can see it automatically generates a kind of weird `url` for your app. If you want to open the app you can run:
+
+```
+$ heroku open
+```
+
+The command opens a browser with a `Heroku` boilerplate app. This is just a filler and once we push our code you'll see our project at this `url`!
+
+Before we push our project to `Heroku` we run
+
+```
+$ git remote -v
+```
+
+and you can see the `origin` remote that was added by `GitHub`. This let's us push and pull changes to our project to `GitHub`. When we ran `$ heroku create`, `Heroku` also added a `remote` were we can push changes to our project and they gonna get live to the web. This is awesome we don't have to leave the `Terminal` in order to update our code in production!
+
+Now before we go ahed and push to the `Heroko` `remote` we have to make sure that:
+
+1. The `port` variable is assigned to Heroku's environment variable so that our app will run probably on the `Heroku` server
+2. The command how to start your application is defined in the `package.json` file
+
+`Heroku` actually sets an environment variable and it gives you the `port` you need to listen to! You can access this  environment variable by accessing
+
+```javascript
+var port = process.env.PORT || 3000;
+```
+
+What we doing here is using the `|| Operator` and what this does is it takes this value and sets it into `port`.  If there is no `process.env.PORT` which there isn't for our local server then it simply uses the `3000` port!
+
+Before we go ahead and do anything else let's rerun our `server` locally by running
+
+```
+$ node index.js
+```
+
+and you can see that our `Express` server started on port `3000`. So it looks like everything is still working well!
+
+Don't forget to update the start command of your app in `package.json`! By default, `Heroku` will look into our `package.json` file under the scripts section and grab `start`. This tells Heroku that when deploying to the web, this command should be used to start our application. Your `package.json` should look similar like the following one:
+
+```json
+{
+  "name": "your-awesome-app",
+  "description": "The best node.js app on the web",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "1.0.0",
+    "body-parser": "1.0.0",
+    "morgan": "1.0.0",
+    "cors": "1.0.0",
+    "mongoose": "1.0.0"
+  }
+}
+```
+
+Now that we have these updates we are actually ready to commit our changes and push it to `Heroku`. Make sure that your working directory is clean by running `$ git status`. If not
+
+1. Add your changes
+2. Commit your changes (Commit message could be: "Update port and define start command for Heroku)
+3. Push your changes to `GitHub`
+
+Now we are finally ready to push the repository to `Heroku`. When we want to push to `Heroku` it is a little different. To push to `Heroku` we gonna run:
+
+```
+$ git push heroku master
+```
+
+This informs `git` that we would like to push to the newly create `Heroku` repository and the master branch. If you run this command you can see it pushes it to `Heroku` and we start getting a log file. `Heroku` is actually going ahead and installing our `npm` modules, it is checking out our `package.json` for configurations, and in the end you can see we actually already launched our app. That is honestly all it takes to deploy! You commit your changes and you push them to `Heroku`. Now they are available live on the web.
+
+If you remember the crazy random name that `Heroku` generated for you, or renamed the app yourself, go ahead and visit that in browser. There is also a shortcut to open in browser using the command line. Just type
+
+```
+$ heroku open
+```
+
+to launch the app in the browser. Now you can see that our app is live on the web. You can go here in any browser on any computer in the world and you gonna see the exact same thing. We no longer running on `localhost` we are actually running on a real web server and it is as easy as pushing to a `git` remote.
+
+One more little bonus! You can actually `rename` your app to whatever you want to call it. To do this run
+
+```
+$ heroku rename new-name-of-your-app
+```
+
+and then simply give it a name. It has some rules about spacings and some special characters! If everything works well you can see the `domain` has changed. Just type
+
+```
+$ heroku open
+```
+
+to launch your app under the new `url`!
