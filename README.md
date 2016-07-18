@@ -1,6 +1,13 @@
 # How to Deploy a Node.js App to Heroku
 
-## 1.0 Generating an SSH key
+## Table of Contents
+[1.0 Generating an SSH key](#one)
+[2.0 Adding a new SSH key to your GitHub account](#two)
+[3.0 Adding a new SSH key to your Heroku account](#three)
+[4.0 Installing Heroku Toolbelt](#four)
+[5.0 Deploying Your Node App](#five)
+
+## <a name="one"></a>1.0 Generating an SSH key
 
 SSH keys are a way to identify trusted computers without involving passwords.
 
@@ -79,7 +86,7 @@ And you're good to go! You now have a new SSH key and you can confirm this by re
 $ ls -al ~/.ssh
 ```
 
-## 2.0 Adding a new SSH key to your GitHub account
+## <a name="two"></a>2.0 Adding a new SSH key to your GitHub account
 
 To configure your GitHub account to use your new (or existing) SSH key, you'll also need to add it to your GitHub account.
 
@@ -95,7 +102,7 @@ To configure your GitHub account to use your new (or existing) SSH key, you'll a
 
 **.pub is short for "public". This is the version you are allowed to get out. The other `id_rsa` file is the private one and you shouldn't  copy and paste that anywhere!**
 
-## 3.0 Adding a new SSH key to your Heroku account
+## <a name="three"></a>3.0 Adding a new SSH key to your Heroku account
 
 Sign up for `Heroku` for free. `Heroku` has some great tools that make deploying from the command line effortless!
 
@@ -107,7 +114,7 @@ Sign up for `Heroku` for free. `Heroku` has some great tools that make deploying
 
 All right, now you have one key registered to `Heroku` but that means you can start running commands from the terminal!
 
-## 4.0 Installing Heroku Toolbelt
+## <a name="four"></a>4.0 Installing Heroku Toolbelt
 
 The Heroku toolbelt will give us access to the Heroku Command Line. Click on the link below to install the Heroku Toolbelt.
 
@@ -139,7 +146,7 @@ $ heroku apps
 
 Which will return a list of all your apps. In your case you probably won't have anything under my apps but it should still return without an error message!
 
-## 5.0 Deploying Your Node App
+## <a name="five"></a>5.0 Deploying Your Node App
 
 The benefit of `Heroku` is that we can deploy from a git repository which makes our lives much easier. Just push and our changes are live!
 
