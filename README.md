@@ -1,11 +1,13 @@
 # How to Deploy a Node.js App to Heroku
 
-## Table of Contents
-[1.0 Generating an SSH key](#one)
-[2.0 Adding a new SSH key to your GitHub account](#two)
-[3.0 Adding a new SSH key to your Heroku account](#three)
-[4.0 Installing Heroku Toolbelt](#four)
-[5.0 Deploying Your Node App](#five)
+I have created this tutorial for my activity as an instructor at [DevMountain](https://devmounta.in/).
+
+##### Table of Contents
+* [1.0 Generating an SSH key](#one)
+* [2.0 Adding a new SSH key to your GitHub account](#two)
+* [3.0 Adding a new SSH key to your Heroku account](#three)
+* [4.0 Installing Heroku Toolbelt](#four)
+* [5.0 Deploying Your Node App](#five)
 
 ## <a name="one"></a>1.0 Generating an SSH key
 
@@ -28,7 +30,7 @@ By default, the filenames of the public keys are one of the following:
 * id_ed25519.pub
 * id_rsa.pub
 
-If you don't have an existing public and private key pair (for example id_rsa.pub and id_rsa), then you have to generate a new SSH key to connect to GitHub and Heroku.
+If you don't have an existing public and private key pair (for example id_rsa.pub and id_rsa), then you have to generate a new SSH key to connect to [GitHub](https://github.com/) and [Heroku](https://www.heroku.com/).
 
 ### 1.2 Deleting existing SSH keys
 
