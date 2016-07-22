@@ -2,6 +2,12 @@
 
 I have created this tutorial for my activity as an instructor at [DevMountain](https://devmounta.in/).
 
+To follow along you need to create an account with:
+
+1. [GitHub](https://github.com/)
+2. [Heroku](https://www.heroku.com/)
+3. [mLab](https://mlab.com/)
+
 ##### Table of Contents
 * [1.0 Generating an SSH key](#one)
 * [2.0 Adding a new SSH key to your GitHub account](#two)
