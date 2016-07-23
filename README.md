@@ -139,21 +139,21 @@ The Heroku toolbelt will give us access to the Heroku Command Line. Click on the
 
 Go ahead and run the instructions for this installer. It'll install a new tool on your computer that lets you create, update, and deploy our apps right from the command line.
 
+### 4.1 Logging into Heroku
+
 Go into your command line and type:
 
 ```
 $ heroku
 ```
 
-Now you can see all the commands available to us.
-
-### 4.1 Logging into Heroku
-
-After the installation the only thing you have to do is to login to `Heroku` just once by typing the following command in your terminal:
+This will install the command line tool, and prompt you to login in.
 
 ```
-$ heroku login
+$ heroku help
 ```
+Will show you all the commands available.
+
 
 You can confirm that your login went well by running a command like:
 
@@ -253,7 +253,7 @@ $ heroku config | grep MONGODB_URI
 You can access this variable in `Node.js` as `process.env.MONGODB_URI`! Make sure that you set the MongoDB connection string equal to:
 
 ```javascript
-const uri = process.env.MONGOLAB_URI;
+const uri = process.env.MONGODB_URI;
 ```
 
 and reference it when you define your `Mongoose` connection like:
@@ -297,14 +297,16 @@ Don't forget to update the start command of your app in `package.json`! By defau
   "description": "The best node.js app on the web",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "postinstall": "bower install"
   },
   "dependencies": {
     "express": "1.0.0",
     "body-parser": "1.0.0",
     "morgan": "1.0.0",
     "cors": "1.0.0",
-    "mongoose": "1.0.0"
+    "mongoose": "1.0.0",
+    "bower": "1.7.9"
   }
 }
 ```
